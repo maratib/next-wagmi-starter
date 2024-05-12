@@ -5,6 +5,7 @@ import "@/assets/globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import MyWagmiProvider from "@/providers/my-wagmi-provider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -35,9 +36,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          {children}
-          <Footer />
+          <MyWagmiProvider>
+            <Header />
+            {children}
+            <Footer />
+          </MyWagmiProvider>
         </ThemeProvider>
       </body>
     </html>
